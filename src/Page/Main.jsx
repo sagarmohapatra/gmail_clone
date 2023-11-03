@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../Component/Header'
 import SideBar from '../Component/SideBar'
 
 const Main = () => {
+  const [openDrawer, setopenDrawer] = useState(false)
+const toggle=()=>{
+  setopenDrawer(!openDrawer)
+}
   return (
     <div>
-        <Header/>
-        <SideBar/>
-        <div>Display mails</div>
+      <Header toggle={toggle} />
+      <SideBar openDrawer={openDrawer} />
+      <div>Display mails</div>
     </div>
   )
 }
