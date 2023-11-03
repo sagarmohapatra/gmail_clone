@@ -1,6 +1,7 @@
 import React from 'react'
 import { Drawer, styled } from '@mui/material'
 import SideBarContent from './SideBarContent'
+
 const SideBar = ({openDrawer}) => {
     return (
         <Drawer anchor='left'
@@ -22,6 +23,7 @@ const SideBar = ({openDrawer}) => {
            <SideBarContent/>
 
         </Drawer>
+       
     )
 }
 
