@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Button, styled, List, ListItem, Container } from '@mui/material'
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import SIDEBAR_DATA from '../Config/sidebar.config';
@@ -26,10 +26,14 @@ const Containers=styled(Box)({
     }
 })
 const SideBarContent = () => {
+    const [openDilaog,setopenDilaog]=useState(false)
+    const onComposeCliclick=()=>{
+        setopenDilaog(true)
+    }
     return (
         <Containers>
            
-                <ComposeButton>
+                <ComposeButton onClick={()=>onComposeCliclick()}>
                     <CreateOutlinedIcon />Compose
                 </ComposeButton>
             
@@ -42,7 +46,7 @@ const SideBarContent = () => {
                     ))
                 }
             </List>
-            <ComposeMail/>
+            <ComposeMail openDilaog={openDilaog} setopenDilaog={setopenDilaog}/>
         </Containers>
     )
 }

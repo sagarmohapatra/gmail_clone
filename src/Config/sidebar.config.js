@@ -1,35 +1,43 @@
-import {Photo,StarOutline,SendOutlined,InsertDriveFileOutlined,
-DeleteOutlined,MailOutlined}from '@mui/icons-material';
+import {
+    Photo, StarOutline, SendOutlined, InsertDriveFileOutlined,
+    DeleteOutlined, MailOutlined
+} from '@mui/icons-material';
 
- const SIDEBAR_DATA=[
+const SIDEBAR_DATA = [
     {
-        name:"inbox",
-        title:"inbox",
-        icon:Photo
-
-    },
-    {
-        name:"sent",
-        title:"sent",
-        icon:StarOutline
+        name: "inbox",
+        title: "inbox",
+        icon: Photo
 
     },
     {
-        name:"drafts",
-        title:"drafts",
-        icon:InsertDriveFileOutlined
+        name: "star",
+        title: "star",
+        icon: StarOutline
 
     },
     {
-        name:"bin",
-        title:"bin",
-        icon:DeleteOutlined
+        name: "send",
+        title: "send",
+        icon: SendOutlined
 
     },
     {
-        name:"allmails",
-        title:"allmails",
-        icon:MailOutlined
+        name: "drafts",
+        title: "drafts",
+        icon: InsertDriveFileOutlined
+
+    },
+    {
+        name: "bin",
+        title: "bin",
+        icon: DeleteOutlined
+
+    },
+    {
+        name: "allmails",
+        title: "allmails",
+        icon: MailOutlined
 
     },
 
