@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Dialog, Box, Typography, styled, InputBase, TextField, Button } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import useApi from '../hooks/useApi';
+import { API_URLS } from '../services/api.url';
 const dialogStyle = {
     height: "90%",
     width: "80%",
@@ -50,12 +52,15 @@ const SendButton = styled(Button)({
     width: 100
 })
 const ComposeMail = ({ openDilaog, setopenDilaog }) => {
+    const sentEmailService=useApi(API_URLS.saveSentEmail);
+
+
 
     const config =
     {
         Host: "smtp.elasticemail.com",
-        Username: "codesagar5@yopmail.com",
-        Password: "768C9712C9DFFE99BD62A776147E67A4794A",
+        Username:process.env.REACT_APP_USERNAME,
+        Password: process.env.REACT_APP_PASSWORD,
         port: 2525,
 
     }
@@ -91,12 +96,32 @@ const ComposeMail = ({ openDilaog, setopenDilaog }) => {
             window.Email.send({
                 ...config,
                 To:data.to,
-                From:"draupadimohapatra44@gmail.com",
+                From:"sagarkumarmohapatra5@gmail.com",
                 Subject: data.subject,
                 Body: data.body 
             }).then(
                 message => alert(message)
             );
+        }
+
+        const payload={
+            to:data.to,
+            from:"sagarkumarmohapatra5@gmail.com",
+            subject:data.subject,
+            body:data.body,
+            date:new Date(),
+            image:"",
+            name:"sagar",
+            starred:false,
+            type:"sent"
+        }
+        sentEmailService.call(payload)
+
+        if(!sentEmailService.error){
+            setopenDilaog(false)
+            setdata({})
+        }else{
+            
         }
         setopenDilaog(false)
     }
