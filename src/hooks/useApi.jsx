@@ -4,12 +4,12 @@ const useApi = (urlObject) => {
     const [response, setresponse] = useState()
     const [error, seterror] = useState()
     const [isLoading, setisLoading] = useState(false)
-    const call = async (payload) => {
+    const call = async (payload,type="") => {
         setresponse(null)
         seterror("")
         setisLoading(true)
         try {
-            let res = await API(urlObject,payload);
+            let res = await API(urlObject,payload,type);
             setresponse(res.data)
         } catch (error) {
             seterror(error.message)

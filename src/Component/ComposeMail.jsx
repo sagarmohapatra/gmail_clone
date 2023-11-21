@@ -53,6 +53,7 @@ const SendButton = styled(Button)({
 })
 const ComposeMail = ({ openDilaog, setopenDilaog }) => {
     const sentEmailService=useApi(API_URLS.saveSentEmail);
+    const saveDraftService=useApi(API_URLS.saveDraftEmails)
 
 
 
@@ -113,15 +114,15 @@ const ComposeMail = ({ openDilaog, setopenDilaog }) => {
             image:"",
             name:"sagar",
             starred:false,
-            type:"sent"
+            type:"drafts"
         }
-        sentEmailService.call(payload)
+        saveDraftService.call(payload)
 
-        if(!sentEmailService.error){
+        if(!saveDraftService.error){
             setopenDilaog(false)
             setdata({})
         }else{
-            
+               
         }
         setopenDilaog(false)
     }
