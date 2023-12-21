@@ -18,7 +18,7 @@ const route = {
     },
     view: {
         path: "/view",
-        element: ViewEmail
+        element: ViewEmail  
     },
     invalid: {
         path: "/*",

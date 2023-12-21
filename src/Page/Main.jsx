@@ -24,7 +24,7 @@ const Main = () => {
         
         </Suspense>
       </Box>
-    </>
+    </> 
   )
 }
 

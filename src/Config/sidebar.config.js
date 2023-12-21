@@ -11,14 +11,14 @@ const SIDEBAR_DATA = [
 
     },
     {
-        name: "star",
-        title: "star",
+        name: "starred",
+        title: "starred",
         icon: StarOutline
 
     },
     {
-        name: "send",
-        title: "send",
+        name: "sent",
+        title: "sent",
         icon: SendOutlined
 
     },

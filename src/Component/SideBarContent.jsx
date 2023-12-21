@@ -54,7 +54,7 @@ const SideBarContent = () => {
                             <data.icon fontSize='small'/>{data.title}
                         </ListItem>
                         </NavLink>
-                    ))
+                    ))  
                 }
             </List>
             <ComposeMail openDilaog={openDilaog} setopenDilaog={setopenDilaog}/>
