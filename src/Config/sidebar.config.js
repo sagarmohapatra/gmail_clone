@@ -21,7 +21,7 @@ const SIDEBAR_DATA = [
         title: "sent",
         icon: SendOutlined
 
-    },
+    }, 
     {
         name: "drafts",
         title: "drafts",
