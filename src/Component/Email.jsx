@@ -2,6 +2,8 @@ import React from 'react'
 import { Box, Typography, Checkbox, Hidden } from '@mui/material'
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import styled from '@emotion/styled';
+import { useNavigate } from 'react-router-dom';
+import {route} from "../routes/route"
 const Wrapper = styled(Box)({
     padding: "0 0 0 10px",
     background: "#f2f6fc",
@@ -32,13 +34,14 @@ const Date = styled(Typography)({
     color:"#5F6368"
 })
 const Email = ({ email,selectedEmail }) => {
+    const navigate=useNavigate()
     return (
         <Wrapper>
             <Checkbox size='small' 
                 checked={selectedEmail.includes(email._id)}
             />
             <StarBorderIcon size='small' style={{ marginRight: 10 }} />
-            <Box>
+            <Box onClick={()=>navigate(route.view.path,{state:{email:email}})}>
                 <Typography style={{ width: 200, overflow: "hidden" }}>{email.name}</Typography>
                 <Indicator>inbox</Indicator>
                 <Typography>{email.subject} {email.body && "-"} {email.body}</Typography>

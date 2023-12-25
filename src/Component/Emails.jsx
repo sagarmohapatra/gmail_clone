@@ -38,7 +38,7 @@ const Emails = () => {
             moveEmailToService.call(selectedEmail)
 
         }
-        // setrefereshScreen(prevState => !prevState)
+        setrefereshScreen(prevState => !prevState)
     }
     return (
         <div style={openDrawer ? { marginLeft: 250, width: "80%" } : { width: "100%" }}>
