@@ -8,6 +8,9 @@ import { Box, ListItem, List } from "@mui/material";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { Padding } from "@mui/icons-material";
 import Email from "./Email";
+import Nomail from "./Nomail";
+import { EMPTY_TABS } from "../constant/Constant";
+
 const Emails = () => {
     const [selectedEmail, setselectedEmail] = useState([])
     const [refereshScreen, setrefereshScreen] = useState(false)
@@ -16,6 +19,7 @@ const Emails = () => {
 
     const getEmailService = useApi(API_URLS.getEmailFromType)
     const moveEmailToService = useApi(API_URLS.moveEmailsToBin)
+    const deleteEmailService = useApi(API_URLS.deleteEmail)
     useEffect(() => {
         getEmailService.call({}, type)
     }, [type, refereshScreen])
@@ -33,7 +37,7 @@ const Emails = () => {
     }
     const deletedSelectedEmail = (e) => {
         if (type === "bin") {
-
+            deleteEmailService.call(selectedEmail)
         } else {
             moveEmailToService.call(selectedEmail)
 
@@ -54,11 +58,17 @@ const Emails = () => {
                             key={email._id}
                             email={email}
                             selectedEmail={selectedEmail}
+                            setrefereshScreen={setrefereshScreen}
+                            setselectedEmail={setselectedEmail}
                         />
                     ))
 
                 }
             </List>
+            {
+                getEmailService?.response?.length === 0 &&
+                <Nomail message={EMPTY_TABS[type]} />
+            }
         </div >
     )
 }
